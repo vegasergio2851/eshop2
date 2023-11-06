@@ -1,15 +1,15 @@
-name: Build
+name: Try1
 
 on:
   push:
     branches:
-      - main
+      - master
 
 
 jobs:
   build:
     name: Build
-    runs-on: self-hosted
+    runs-on: windows-latest
     permissions: read-all
     steps:
       - uses: actions/checkout@v2
@@ -42,6 +42,6 @@ jobs:
         env:
          shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"vegasergio2851_eSHopOnWeb_AYuXne0WlV_fnToDXzVE" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"vegasergio2851_eshop2_AYumRvsT_MDwPei2VGln" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
           dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
