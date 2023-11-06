@@ -39,5 +39,5 @@ jobs:
          shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"vegasergio2851_eshop2_AYumRvsT_MDwPei2VGln" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
-          dotnet build
+          dotnet build eShopOnWeb.sln
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
