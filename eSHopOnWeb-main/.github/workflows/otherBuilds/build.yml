@@ -1,0 +1,22 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  build:
+    name: Build
+    runs-on: self-hosted
+    permissions: read-all
+    steps:
+      - name: Build and analyze
+        env:
+         shell: powershell
+        run: |
+          C:\Users\"Sergio Vega"\.dotnet\tools\dotnet-sonarscanner begin /k:"vegasergio2851_eSHopOnWeb_AYuVgVTUlV_fnToDXzUW" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
+          dotnet build ./eShopOnWeb.sln
+          C:\Users\"Sergio Vega"\.dotnet\tools\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+ 
